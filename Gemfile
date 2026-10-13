@@ -1,0 +1,12 @@
+source "https://rubygems.org"
+
+gem "jekyll", "~> 3.10"
+gem "jekyll-optional-front-matter"
+gem "jekyll-default-layout"
+gem "jekyll-titles-from-headings"
+gem "jekyll-relative-links"
+gem "webrick"
+gem "csv"
+gem "base64"
+gem "bigdecimal"
+gem "kramdown-parser-gfm"

@@ -1,0 +1,10 @@
+# Textbook / manual PDFs are for personal reference only; never publish them.
+*.pdf
+.DS_Store
+
+# Local Jekyll output and dependencies
+_site/
+.bundle/
+vendor/
+.jekyll-cache/
+.jekyll-metadata

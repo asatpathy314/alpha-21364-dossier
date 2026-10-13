@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.url != "/" %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23000'/%3E%3C/svg%3E">
+  <style>
+    html { scrollbar-gutter: stable; background: #fff; color: #222; }
+    * { box-sizing: border-box; }
+    body { font-family: Georgia, "Times New Roman", serif; line-height: 1.65; font-size: 17px; margin: 48px auto; padding: 0 22px; max-width: 760px; }
+    h1, h2, h3 { line-height: 1.25; }
+    h1 { font-size: 2rem; margin: 0 0 1.2rem; }
+    h2 { font-size: 1.35rem; margin: 2rem 0 .8rem; }
+    p { margin: 0 0 1rem; }
+    ul { padding-left: 1.3rem; }
+    li { margin: .6rem 0; }
+    a { color: #224d76; text-underline-offset: .15em; overflow-wrap: anywhere; }
+    a:hover { color: #111; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #224d76; outline-offset: 4px; }
+    img { max-width: 100%; height: auto; }
+    table { border-collapse: collapse; display: block; overflow-x: auto; }
+    th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
+    code { font-size: .85em; overflow-wrap: anywhere; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; line-height: 1.5; padding: 16px; border: 1px solid #ddd; background: #f7f7f7; border-radius: 4px; }
+    pre code { font-size: inherit; }
+    .copy-citation { display: block; margin: 0 0 8px auto; padding: 6px 10px; font: 14px system-ui, sans-serif; color: #224d76; background: #fff; border: 1px solid #bbb; border-radius: 4px; cursor: pointer; }
+    .site-footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 15px; }
+    .site-footer nav { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+    @media (max-width: 480px) { body { margin: 28px auto; padding: 0 18px; } h1 { font-size: 1.65rem; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div id="maincontent">
+{{ content }}
+{% if page.url != "/" %}
+      <p style="margin-top: 30px"><a href="{{ '/' | relative_url }}">← Home</a></p>
+{% endif %}
+    </div>
+  </main>
+  <footer class="site-footer" role="contentinfo">
+    <nav aria-label="Site">
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/DOSSIER.html' | relative_url }}">Dossier</a>
+      <a href="{{ '/sources/' | relative_url }}">Sources</a>
+      <a href="https://github.com/asatpathy314/alpha-21364-dossier">GitHub</a>
+    </nav>
+  </footer>
+  <script>
+    document.querySelectorAll('pre code.language-bibtex, .language-bibtex pre code').forEach((code) => {
+      const pre = code.closest('pre');
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'copy-citation';
+      button.textContent = 'Copy BibTeX';
+      pre.before(button);
+      button.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(code.textContent);
+          button.textContent = 'Copied!';
+        } catch {
+          const range = document.createRange();
+          range.selectNodeContents(code);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          button.textContent = 'Selected — press Ctrl+C or ⌘C';
+        }
+        setTimeout(() => { button.textContent = 'Copy BibTeX'; }, 2500);
+      });
+    });
+  </script>
+</body>
+</html>

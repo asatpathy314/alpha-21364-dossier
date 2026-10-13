@@ -1,0 +1,33 @@
+title: Alpha 21364 source dossier
+description: Source dossier for an Alpha 21364 (EV7) processor briefing
+url: "https://asatpathy314.github.io"
+baseurl: "/alpha-21364-dossier"
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+  - jekyll-relative-links
+titles_from_headings:
+  enabled: true
+  strip_title: false
+relative_links:
+  enabled: true
+  collections: false
+optional_front_matter:
+  remove_originals: true
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+exclude:
+  - README.md
+  - "*.pdf"
+  - "*.pptx"
+  - Gemfile
+  - Gemfile.lock
+  - vendor
