@@ -1,28 +1,27 @@
 ---
-title: "Kessler, The Alpha 21264 Microprocessor (IEEE Micro 1999)"
+title: "Kessler, The Alpha 21264 Microprocessor"
 ---
-# Kessler, The Alpha 21264 Microprocessor (IEEE Micro 1999)
+# Kessler, The Alpha 21264 Microprocessor
 
-Richard Kessler’s IEEE Micro article is the fullest published description of the 21264 core, which the 21364 reuses unchanged apart from larger miss and victim buffers. It is the main academic source for the front end, branch prediction, renaming, issue queues, execution clusters, and the load and store queues.
+The 21364 reuses the 21264 core, and this article is the fullest description of it: the pipeline, line and way prediction, the tournament branch predictor, renaming, the issue queues, the clustered execution units, and the load and store queues.
 
-[Read the open copy](https://acg.cis.upenn.edu/milom/cis501-Fall09/papers/Alpha21264.pdf) · [Publication page](https://doi.org/10.1109/40.755465).
+[Read the paper](https://acg.cis.upenn.edu/milom/cis501-Fall09/papers/Alpha21264.pdf) · [Publication page](https://doi.org/10.1109/40.755465).
 
-**Primary source. Academic article (peer reviewed). Open copy on a University of Pennsylvania course page; the IEEE Xplore copy needs the UVA network.** Page numbers below are the printed IEEE Micro page numbers, 24–36.
+Published in IEEE Micro 19(2), 1999, pp. 24–36. Page numbers are the printed ones.
 
 ## Where to look
 
-- **Pipeline stages.** Figure 2 on p. 25 shows the seven stages, numbered 0–6: fetch, slot, rename, issue, register read, execute, and memory. The figure also labels the 20-entry integer and 15-entry floating-point issue queues, the two 80-entry integer register files, and the 72-entry floating-point file.
-- **Fetch and line/way prediction.** Figure 3 on p. 26 and the surrounding text explain the line and way predictor, its 2-bit hysteresis, and how it is trained on cache fills and on jump targets.
-- **Branch prediction.** The “Branch prediction” subsection on p. 26 gives the seven-cycle mispredict cost and the table sizes. Figure 4 on p. 28 is the tournament predictor block diagram (local history 1,024 × 10, local prediction 1,024 × 3, global 4,096 × 2, choice 4,096 × 2). The sidebar on p. 27 works through local and global examples.
-- **Renaming and issue.** Figure 5 on p. 28 shows the map and queue stages with 80 in-flight instructions. Pages 28–29 cover the 31 + 41 register split, the two issue queues, the two arbiters, oldest-first selection, and in-order retirement.
-- **Execution units and latencies.** Figure 6 on p. 30 shows the four integer pipes (two clusters) and two floating-point pipes with the unit in each. Table 1 on p. 30 gives retire pipe stages. Table 2 on p. 31 lists instruction latencies. The text on p. 30 explains the duplicated register file and the one-cycle cross-cluster penalty.
-- **Memory system.** Pages 31–32 and Figure 8 describe the 32-entry load queue, 32-entry store queue, store-to-load forwarding, and the eight-entry miss address file. Figure 10 on p. 34 shows the store/load wait table. Figure 11 on p. 35 shows load hit/miss prediction and the two-cycle “minirestart.”
+- **Pipeline and fetch.** Figure 2 on p. 25 shows the seven stages. Figure 3 on p. 26 covers line and way prediction.
+- **Branch prediction.** Page 26 gives the seven-cycle mispredict cost. Figure 4 on p. 28 shows the predictor with its table sizes.
+- **Renaming and issue.** Figure 5 on p. 28 and pp. 28–29 cover the map, the 80-instruction window, and the two issue queues.
+- **Execution units.** Figure 6 on p. 30 shows the clusters and units. Table 2 on p. 31 gives latencies.
+- **Memory system.** Pages 31–35 cover the load and store queues, store-to-load forwarding, the wait table (Figure 10), and load hit/miss prediction (Figure 11).
 
 ## BibTeX
 
 {% raw %}
 ```bibtex
-@article{kessler1999alpha21264,
+@article{kesslerAlpha21264,
   author = {Kessler, Richard E.},
   title = {The {Alpha} 21264 Microprocessor},
   journal = {IEEE Micro},
@@ -30,7 +29,6 @@ Richard Kessler’s IEEE Micro article is the fullest published description of t
   number = {2},
   pages = {24--36},
   year = {1999},
-  month = {March--April},
   doi = {10.1109/40.755465}
 }
 ```

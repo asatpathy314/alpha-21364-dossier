@@ -1,6 +1,6 @@
 # Alpha 21364 source dossier
 
-A reading guide to the Compaq Alpha 21364 (EV7): the architecture handbook, the 21264 core papers, the network and performance papers, and the trade press around the launch. Start at [index.md](index.md) or browse the [source guide](DOSSIER.md).
+A reading guide to the Compaq Alpha 21364 (EV7): the ISA handbook, the 21264 core documents, the network and performance papers, and background. Start at [index.md](index.md) or browse the [source guide](DOSSIER.md).
 
 [Published website](https://asatpathy314.github.io/alpha-21364-dossier/).
 
